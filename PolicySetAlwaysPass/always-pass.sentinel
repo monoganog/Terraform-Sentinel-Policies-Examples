@@ -1,0 +1,5 @@
+# Minimal, unconditional "pass" policy
+
+main = rule {
+    true
+}
