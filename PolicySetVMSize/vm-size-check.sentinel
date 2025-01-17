@@ -1,5 +1,27 @@
-# Minimal, unconditional "pass" policy
+# Imports mock data
+import "tfplan/v2" as tfplan
 
+# Get all Azure VMs from all modules
+azure_vms = filter tfplan.resource_changes as _, rc {
+    rc.type is "azurerm_virtual_machine" and
+        (rc.change.actions contains "create" or rc.change.actions is ["update"])
+}
+
+# Allowed VM Sizes
+allowed_vm_sizes = [
+    "Standard_B1s",
+    "Standard_B1ms",
+    "Standard_B2s",
+]
+
+# Rule to restrict VM sizes
+vm_size_allowed = rule {
+    all azure_vms as _, vm {
+        vm.change.after.size in allowed_vm_sizes
+    }
+}
+
+# Main rule that requires the VM size rule to be true
 main = rule {
-    true
+    vm_size_allowed else true
 }
