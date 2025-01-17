@@ -1,4 +1,3 @@
-policy "azure_vm_size" {
-  source            = "vm-size-check.sentinel"
+policy "vm-size-check" {
   enforcement_level = "soft-mandatory"
 }
