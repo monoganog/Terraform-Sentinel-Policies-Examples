@@ -18,7 +18,7 @@ vm_size_allowed = rule {
   }
 }
 
-# Remove 'else true' to actually enforce the restriction
+# VM not of valid size. Please use "Standard_B1s","Standard_B1ms" or "Standard_B2s",
 main = rule {
   vm_size_allowed
 }
