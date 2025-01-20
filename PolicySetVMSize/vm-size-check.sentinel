@@ -23,5 +23,5 @@ vm_size_allowed = rule {
 
 # Main rule that requires the VM size rule to be true
 main = rule {
-    vm_size_allowed else true
+    vm_size_allowed
 }
