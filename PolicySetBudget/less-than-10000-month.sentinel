@@ -3,7 +3,7 @@ import "decimal"
 
 delta_monthly_cost = decimal.new(tfrun.cost_estimate.delta_monthly_cost)
 
-# Cost is over 10000 a month. Too expsensive.
+# Cost is over 10000 a month. Too expensive.
 main = rule {
     delta_monthly_cost.less_than(10000)
 }
