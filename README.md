@@ -1,2 +1,2 @@
-# Terraform-Azure-Sentinel-Policies
-A collection of Azure Policies to use with Terraform
+# Terraform-Sentinel-Policies-Examples
+A collection of Sentinel Policies to use with Terraform
